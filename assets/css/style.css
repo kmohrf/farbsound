@@ -1,0 +1,177 @@
+@import "../../components/font-awesome/build/assets/font-awesome/css/font-awesome.min.css";
+html {
+  font: 400 14px/1.2em sans-serif;
+  color: white;
+}
+body {
+  margin: 0;
+}
+audio {
+  display: none;
+}
+.wrap {
+  background: black;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 200px;
+}
+.controls {
+  margin: 10px 0 15px;
+  padding: 0;
+  font-size: 0;
+  text-align: center;
+}
+.control {
+  background: #111;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1rem;
+  border-radius: 100%;
+  width: 35px;
+  line-height: 35px;
+  text-align: center;
+  margin: 0 5px;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+  -webkit-transition: background-color .2s;
+  -moz-transition: background-color .2s;
+  -o-transition: background-color .2s;
+  -ms-transition: background-color .2s;
+  transition: background-color .2s;
+}
+.control:hover {
+  background-color: #d21034;
+}
+.control#toggle-play .icon-play {
+  display: inline;
+}
+.control#toggle-play .icon-pause {
+  display: none;
+}
+.control#toggle-play.active .icon-play {
+  display: none;
+}
+.control#toggle-play.active .icon-pause {
+  display: inline;
+}
+.control:last-child {
+  margin-right: 0;
+}
+.control.control-large {
+  width: 50px;
+  line-height: 50px;
+}
+.progress {
+  margin: 0 0 10px 0;
+  cursor: default;
+}
+.progress:hover .meter {
+  border-color: transparent;
+}
+.progress .meter {
+  display: block;
+  background: #d21034;
+  height: 3px;
+  border-width: 3px 0;
+  border-color: black;
+  border-style: solid;
+  margin: 0 0 2px 0;
+  -webkit-transition: -webkit-border-color .2s;
+  -moz-transition: -moz-border-color .2s;
+  -o-transition: border-color .2s;
+  -ms-transition: border-color .2s;
+  transition: border-color .2s;
+}
+.progress .time {
+  font-size: 0.8rem;
+  padding: 0 5px;
+  color: #999;
+}
+.clear-fix:after {
+  content: " ";
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+}
+.tracklist-items {
+  margin: 0;
+  padding: 0;
+}
+.tracklist-items li {
+  cursor: default;
+  display: block;
+  font-size: 0.8rem;
+  color: #ddd;
+  padding: 0 5px;
+  border-bottom: 1px solid #111;
+  line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: background-color .2s;
+  -moz-transition: background-color .2s;
+  -o-transition: background-color .2s;
+  -ms-transition: background-color .2s;
+  transition: background-color .2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.tracklist-items li.active {
+  background-color: white;
+  color: black;
+}
+.tracklist-items li:hover {
+  background: #d21034;
+}
+.tracklist-items li .title {
+  white-space: no-wrap;
+}
+.tracklist-items li i {
+  padding-right: 5px;
+}
+.tracklist-items li i:hover {
+  color: black;
+}
+h2 {
+  font-size: 0.85rem;
+  color: #d21034;
+  padding: 0 5px;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: right;
+  box-shadow: 0 1px 0 #d21034;
+}
+.home {
+  background: black;
+}
+.home a {
+  display: block;
+  width: 200px;
+  line-height: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -100px;
+  border-radius: 100%;
+  text-align: center;
+  background: #d21034;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+  font-size: 2.5rem;
+  color: white;
+  text-decoration: none;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -o-transition: all .2s;
+  -ms-transition: all .2s;
+  transition: all .2s;
+}
+.home a:hover {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}

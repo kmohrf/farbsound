@@ -1,0 +1,14 @@
+{
+  "name": "farbsound",
+  "version": "0.1.0",
+  "dependencies": {
+    "eventdispatcher.js": "*",
+    "font-awesome": "~3.1.1",
+    "lesshat": "~1.1.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="home">
+    <head>
+        <meta charset="UTF-8" />
+        <title>farbsound</title>
+        <link href="/assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+<a href="javascript: (function() {
+    farbsound = document.createElement('iframe');
+    farbsound.setAttribute('frameborder', '0');
+    farbsound.setAttribute('style', 'border: none; position: fixed; top: 0; right: 0; width: 200px; height: 100%; overflow: auto; overflow-x: hidden; overflow-y: auto; z-index: 100000');
+    farbsound.setAttribute('marginheight', '0');
+    farbsound.setAttribute('marginwidth', '0');
+    farbsound.setAttribute('src', 'http://farbsound.org/player.html');
+    farbsound.onload = function() {
+        var urls = [];
+        var links = document.getElementsByTagName('a');
+
+        for(var i = 0; i < links.length; i++) {
+            urls.push({ ref: links[i].href, title: links[i].hasAttribute('title') ? links[i].getAttribute('title') : links[i].textContent });
+        }
+
+        this.contentWindow.postMessage(urls, 'http://farbsound.org');
+    };
+
+    document.body.appendChild(farbsound);
+}());
+">farbsound</a>
+    </body>
+</html>
