@@ -1,0 +1,48 @@
+@import "variables";
+@import "../../components/lesshat/lesshat.less";
+
+body {
+	font-family: "PT Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+}
+
+.page-header {
+	a {
+		float: left;
+		display: block;
+	}
+
+	h1 {
+		line-height: 96px;
+		position: relative;
+		bottom: -8px;
+		font-size: 51px;
+		margin-left: 111px;
+
+		span {
+			color: @highlight;
+		}
+	}
+}
+
+p.lead {
+	font-style: italic;
+	color: #555;
+	font-size: 18px;
+	line-height: 26px;
+}
+
+.footer {
+	padding-top: 10px;
+	border-top: 1px solid #ddd;
+	color: #666;
+	margin-top: 200px;
+
+	-webkit-filter: grayscale(1);
+	filter: grayscale(1);
+
+}

@@ -3,32 +3,76 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>farbsound</title>
-		<link href="/assets/css/style.css" rel="stylesheet"/>
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic|Roboto:700" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="/assets/img/favicon.png" type="image/png" />
+		<link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="/assets/css/site.css" rel="stylesheet"/>
 	</head>
 	<body>
-		<a href="javascript: (function() {
-			farbsound = document.createElement('iframe');
+		<div class="container">
+			<div class="page-header">
+				<a href="javascript: (function() {
+					farbsound = document.createElement('iframe');
 
-			farbsound.setAttribute('src', '__origin__/player.html');
-			farbsound.setAttribute('frameborder', '0');
-			farbsound.setAttribute('style', 'border: none; position: fixed; top: 0; right: 0; width: 200px; height: 100%; overflow: auto; overflow-x: hidden; overflow-y: auto; z-index: 100000');
-			farbsound.setAttribute('marginheight', '0');
-			farbsound.setAttribute('marginwidth', '0');
+					farbsound.setAttribute('src', '__origin__/player.html');
+					farbsound.setAttribute('frameborder', '0');
+					farbsound.setAttribute('style', 'border: none; position: fixed; top: 0; right: 0; width: 200px; height: 100%; overflow: auto; overflow-x: hidden; overflow-y: auto; z-index: 100000');
+					farbsound.setAttribute('marginheight', '0');
+					farbsound.setAttribute('marginwidth', '0');
 
-			farbsound.onload = function() {
-				var urls = [];
-				var links = document.getElementsByTagName('a');
+					farbsound.onload = function() {
+						var urls = [];
+						var links = document.getElementsByTagName('a');
 
-				for(var i = 0; i < links.length; i++) {
-					urls.push({ ref: links[i].href, title: links[i].hasAttribute('title') ? links[i].getAttribute('title') : links[i].textContent });
-				}
+						for(var i = 0; i < links.length; i++) {
+							urls.push({ ref: links[i].href, title: links[i].hasAttribute('title') ? links[i].getAttribute('title') : links[i].textContent });
+						}
 
-				this.contentWindow.postMessage(urls, '__origin__');
-			};
+						this.contentWindow.postMessage(urls, '__origin__');
+					};
 
-			document.body.appendChild(farbsound);
-		}());
-		" id="application">farbsound</a>
+					document.body.appendChild(farbsound);
+				}());
+				" id="application" title="Drag & Drop me into your bookmark bar">
+					<img src="/assets/img/logo.svg" height="96" width="96" alt="farbsound logo" />
+				</a>
+				<h1>
+					<span>f</span>arb<span>s</span>ound
+				</h1>
+			</div>
+
+			<div class="row">
+				<div class="span4">
+					<h2>About</h2>
+					<p class="lead">
+						farbsound is an audio web player that takes its playlist from the site you visit
+					</p>
+				</div>
+				<div class="span4">
+					<h2>How?</h2>
+					<p class="lead">
+						Once you visit a site you start farbsound via a bookmarklet.
+						It will load the tracks that are linked in the current page and allows you
+						to play them directly in your browser.
+					</p>
+				</div>
+				<div class="span4">
+					<h2>Bookmarklet?</h2>
+					<p class="lead">
+						Exactly. Just drag & drop the logo from above into your bookmark bar
+						and click on it once you visit a site that links to audio files.
+					</p>
+				</div>
+			</div>
+
+			<div class="footer">
+				<p>
+					farbsound, written by Konrad Mohrfeldt and licensed under the terms of the
+					<a href="http://www.gnu.org/licenses/agpl-3.0.en.html"><img src="/assets/img/agpl.png" alt="AGPL V3 Logo" /> GNU Affero General Public License</a>.
+				</p>
+			</div>
+		</div>
+
 		<script>
 			var applicationLink = document.getElementById("application");
 			applicationLink.setAttribute(
