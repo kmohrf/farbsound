@@ -8,11 +8,13 @@
     <body>
 <a href="javascript: (function() {
     farbsound = document.createElement('iframe');
+
+    farbsound.setAttribute('src', '__origin__/player.html');
     farbsound.setAttribute('frameborder', '0');
     farbsound.setAttribute('style', 'border: none; position: fixed; top: 0; right: 0; width: 200px; height: 100%; overflow: auto; overflow-x: hidden; overflow-y: auto; z-index: 100000');
     farbsound.setAttribute('marginheight', '0');
     farbsound.setAttribute('marginwidth', '0');
-    farbsound.setAttribute('src', 'http://farbsound.org/player.html');
+
     farbsound.onload = function() {
         var urls = [];
         var links = document.getElementsByTagName('a');
@@ -21,11 +23,20 @@
             urls.push({ ref: links[i].href, title: links[i].hasAttribute('title') ? links[i].getAttribute('title') : links[i].textContent });
         }
 
-        this.contentWindow.postMessage(urls, 'http://farbsound.org');
+        this.contentWindow.postMessage(urls, '__origin__');
     };
 
     document.body.appendChild(farbsound);
 }());
-">farbsound</a>
+" id="application">farbsound</a>
+    <script>
+        var applicationLink = document.getElementById("application");
+        applicationLink.setAttribute(
+                "href",
+                applicationLink
+                        .getAttribute("href")
+                        .replace(/__origin__/g, window.location.origin)
+        );
+    </script>
     </body>
 </html>
