@@ -1,68 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>farbsound</title>
-        <script src="/components/eventdispatcher.js/src/EventDispatcher.js"></script>
-        <script src="/assets/js/player.js"></script>
-        <script src="/assets/js/progress.js"></script>
-        <script src="/assets/js/controls.js"></script>
-        <script src="/assets/js/tracklist.js"></script>
-        <link href="/assets/css/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="wrap">
-            <audio controls="false" id="audio"></audio>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>farbsound</title>
+		<script src="/components/eventdispatcher.js/src/EventDispatcher.js"></script>
+		<script src="/assets/js/player.js"></script>
+		<script src="/assets/js/progress.js"></script>
+		<script src="/assets/js/controls.js"></script>
+		<script src="/assets/js/tracklist.js"></script>
+		<link href="/assets/css/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="wrap">
+			<audio controls="false" id="audio"></audio>
 
-            <ul class="controls">
-                <li title="Previous Track" id="prev" class="control">
-                    <i class="icon-step-backward"></i>
-                </li>
-                <li title="Play" id="toggle-play" class="control control-large">
-                    <i class="icon-play"></i>
-                    <i class="icon-pause"></i>
-                </li>
-                <li title="Next Track" id="next" class="control">
-                    <i class="icon-step-forward"></i>
-                </li>
-            </ul>
+			<ul class="controls">
+				<li title="Previous Track" id="prev" class="control">
+					<i class="icon-step-backward"></i>
+				</li>
+				<li title="Play" id="toggle-play" class="control control-large">
+					<i class="icon-play"></i>
+					<i class="icon-pause"></i>
+				</li>
+				<li title="Next Track" id="next" class="control">
+					<i class="icon-step-forward"></i>
+				</li>
+			</ul>
 
-            <div class="progress">
-                <div class="meter" id="meter" style="width: 0"></div>
-                <span class="seek" id="seek"></span>
-                <div class="time clear-fix">
-                    <span class="pull-left" id="time-elapsed"></span>
-                    <span class="pull-right" id="time-total"></span>
-                </div>
-            </div>
+			<div class="progress">
+				<div class="meter" id="meter" style="width: 0"></div>
+				<span class="seek" id="seek"></span>
 
-            <div class="tracklist">
-                <h2>Tracks</h2>
-                <ol class="tracklist-items" id="tracklist"></ol>
-            </div>
-        </div>
+				<div class="time clear-fix">
+					<span class="pull-left" id="time-elapsed"></span>
+					<span class="pull-right" id="time-total"></span>
+				</div>
+			</div>
 
-        <script>
-            window.addEventListener("message", function(event) {
-                var audio = document.getElementById("audio");
-                var tracklist = new Tracklist(event.data);
-                var player = new Player(audio, tracklist);
-                var controls = new Controls(
-                        audio,
-                        document.getElementById("prev"),
-                        document.getElementById("toggle-play"),
-                        document.getElementById("next"),
-                        document.getElementById("seek")
-                );
-                var progress = new Progress(
-                        audio,
-                        document.getElementById("time-elapsed"),
-                        document.getElementById("time-total"),
-                        document.getElementById("meter")
-                );
+			<div class="tracklist">
+				<h2>Tracks</h2>
+				<ol class="tracklist-items" id="tracklist"></ol>
+			</div>
+		</div>
 
-                tracklist.render(document.getElementById("tracklist"));
-            }, false);
-        </script>
-    </body>
+		<script>
+			window.addEventListener("message", function (event) {
+				var audio = document.getElementById("audio");
+				var tracklist = new Tracklist(event.data);
+				var player = new Player(audio, tracklist);
+				var controls = new Controls(
+						audio,
+						document.getElementById("prev"),
+						document.getElementById("toggle-play"),
+						document.getElementById("next"),
+						document.getElementById("seek")
+				);
+				var progress = new Progress(
+						audio,
+						document.getElementById("time-elapsed"),
+						document.getElementById("time-total"),
+						document.getElementById("meter")
+				);
+
+				tracklist.render(document.getElementById("tracklist"));
+			}, false);
+		</script>
+	</body>
 </html>
