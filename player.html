@@ -8,6 +8,7 @@
 		<script src="/assets/js/progress.js"></script>
 		<script src="/assets/js/controls.js"></script>
 		<script src="/assets/js/tracklist.js"></script>
+		<script src="/assets/js/unity.js"></script>
 		<link href="/assets/css/style.css" rel="stylesheet"/>
 	</head>
 	<body>
@@ -44,23 +45,29 @@
 		</div>
 
 		<script>
+			var audio = document.getElementById("audio");
+			var controls = new Controls(
+					audio,
+					document.getElementById("prev"),
+					document.getElementById("toggle-play"),
+					document.getElementById("next"),
+					document.getElementById("seek")
+			);
+			var progress = new Progress(
+					audio,
+					document.getElementById("time-elapsed"),
+					document.getElementById("time-total"),
+					document.getElementById("meter")
+			);
+
+			// QUESTION there must be another way to invoke unity. unfortunately the direct call triggers undefined errors
+			window.setTimeout(function() {
+				var unityPlugin = new UnityPlugin(audio);
+			}, 500);
+
 			window.addEventListener("message", function (event) {
-				var audio = document.getElementById("audio");
 				var tracklist = new Tracklist(event.data);
 				var player = new Player(audio, tracklist);
-				var controls = new Controls(
-						audio,
-						document.getElementById("prev"),
-						document.getElementById("toggle-play"),
-						document.getElementById("next"),
-						document.getElementById("seek")
-				);
-				var progress = new Progress(
-						audio,
-						document.getElementById("time-elapsed"),
-						document.getElementById("time-total"),
-						document.getElementById("meter")
-				);
 
 				tracklist.render(document.getElementById("tracklist"));
 			}, false);

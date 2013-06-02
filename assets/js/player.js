@@ -26,6 +26,9 @@ Player = function (player, tracklist) {
 
 Player.prototype.playTrack = function (track) {
 	this.tracklist.setCurrent(track ? track.id : track);
+	this.player.dispatchEvent(new CustomEvent("track", {
+		detail: track
+	}));
 
 	if (track === null) return;
 

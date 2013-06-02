@@ -5,6 +5,20 @@ Tracklist = function (rawData) {
 		return element.ref && element.ref.match(/.*\.(mp3|ogg|opus)$/) !== null;
 	});
 
+	var coverArt = rawData.filter(function (element) {
+		return element.ref && element.ref.match(/.*folder\.jpg$/) !== null;
+	});
+
+	if (coverArt.length > 0) {
+		this.coverArt = coverArt[0].ref;
+
+		for (var i = 0; i < this.tracks.length; i++) {
+			this.tracks[i].coverArt = this.coverArt;
+		}
+	} else {
+		this.coverArt = null;
+	}
+
 	this.controlFields = {
 		track: "data-tracklist-trackId",
 		action: "data-tracklist-action"
