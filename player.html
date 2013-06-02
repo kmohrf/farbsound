@@ -29,6 +29,7 @@
 
             <div class="progress">
                 <div class="meter" id="meter" style="width: 0"></div>
+                <span class="seek" id="seek"></span>
                 <div class="time clear-fix">
                     <span class="pull-left" id="time-elapsed"></span>
                     <span class="pull-right" id="time-total"></span>
@@ -50,7 +51,8 @@
                         audio,
                         document.getElementById("prev"),
                         document.getElementById("toggle-play"),
-                        document.getElementById("next")
+                        document.getElementById("next"),
+                        document.getElementById("seek")
                 );
                 var progress = new Progress(
                         audio,

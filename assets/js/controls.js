@@ -1,10 +1,19 @@
-Controls = function(player, prev, play, next) {
+Controls = function(player, prev, play, next, seek) {
     this.player = player;
     this.prev = prev;
     this.togglePlay = play;
+    this.seek = seek;
     this.next = next;
 
     var _this = this;
+
+    document.addEventListener("mousemove", function(event) {
+        _this.seek.style.left = event.x + "px";
+    });
+
+    this.seek.addEventListener("click", function(event) {
+        _this.player.currentTime = event.x / window.innerWidth * _this.player.duration;
+    });
 
     this.player.addEventListener("pause", function(event) {
         _this.togglePlay.classList.remove("active");

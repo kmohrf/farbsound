@@ -82,9 +82,16 @@ audio {
 .progress {
   margin: 0 0 10px 0;
   cursor: default;
+  position: relative;
 
-  &:hover .meter {
-    border-color: transparent;
+  &:hover {
+    .meter {
+      border-color: transparent;
+    }
+
+    .seek {
+      display: block;
+    }
   }
 
   .meter {
@@ -96,6 +103,18 @@ audio {
     border-style: solid;
     margin: 0 0 2px 0;
     .transition(~"border-color .2s");
+    width: 100px
+  }
+
+  .seek {
+    display: none;
+    width: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-top: 9px solid white;
+    z-index: 5;
   }
 
   .time {
