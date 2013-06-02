@@ -1,6 +1,6 @@
 {
 	"name": "farbsound",
-	"version": "0.4.2",
+	"version": "0.4.3",
 	"dependencies": {
 		"eventdispatcher.js": "*",
 		"font-awesome": "~3.1.1",
