@@ -1,5 +1,4 @@
-@import "../../components/lesshat/lesshat.less";
-@import "../../components/font-awesome/build/assets/font-awesome/css/font-awesome.min.css";
+@import (less) "../../bower_components/font-awesome/build/assets/font-awesome/css/font-awesome.min.css";
 @import "variables";
 
 html {
@@ -42,7 +41,7 @@ audio {
 	text-align: center;
 	margin: 0 5px;
 	box-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
-	.transition(~"background-color .2s");
+	transition: background-color .2s;
 
 	&:hover {
 		background-color: @highlight;
@@ -101,7 +100,7 @@ audio {
 		border-color: black;
 		border-style: solid;
 		margin: 0 0 2px 0;
-		.transition(~"border-color .2s");
+		transition: border-color .2s;
 		width: 100px
 	}
 
@@ -146,8 +145,8 @@ audio {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		.transition(~"background-color .2s");
-		.user-select(none);
+		transition: background-color .2s;
+		user-select: none;
 
 		&.active {
 			background-color: white;
@@ -159,7 +158,7 @@ audio {
 		}
 
 		.title {
-			white-space: no-wrap;
+			white-space: nowrap;
 		}
 
 		i {

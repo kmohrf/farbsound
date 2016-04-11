@@ -1,6 +1,4 @@
-node_modules
-components
-assets/css/*.css
-!assets/css/player.css
-!assets/css/site.css
+node_modules/*
+bower_components/*
+web/assets/*
 .idea
